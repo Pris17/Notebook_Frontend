@@ -18,14 +18,13 @@ const NavigationBar = ({ username, onLogout }) => {
               style={{ fontSize: "30px", color: "white" }}
             />
           </span>
-          <span style={{ fontSize: "20px", color: "white" }}>Notebook</span>
+          <span style={{ fontSize: "20px", color: "white", display: "inline-block", paddingTop: "20px"}}>Notebook</span>
         </div>
         {/** <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-5"> */}
         <span
           className="navbar-text navbar-right"
-          style={{ marginRight: "10px" }}
-        >
-          Signed in as {username}. | <span className="navbar-link">logout</span>
+          style={{ marginRight: "10px" }}>
+          Signed in as {username} | <span className="navbar-link" onClick={onLogout}>logout</span>
         </span>
       </div>
     </nav>
@@ -46,7 +45,6 @@ const SideBar = ({ onNoteAdd, onNoteDelete }) => {
         }}
         onClick={onNoteAdd}
       >
-        
         <span style={{ marginLeft: "6px" }}>Add Note</span>
       </button>
       <br />
@@ -178,7 +176,7 @@ const NotePage = ({
   } else {
     return (
       <React.Fragment>
-        <NavigationBar onLogout={logout} username={"asd"} />
+        <NavigationBar onLogout={logout} username={username} />
         <div className="container-fluid" style={{ marginTop: "100px" }}>
           <div className="row">
             <SideBar onNoteAdd={handleNew} onNoteDelete={handleDelete} />

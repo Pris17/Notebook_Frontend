@@ -34,7 +34,7 @@ export default ({
   onEdit,
   onSelect,
   onDelete,
-  isChecked,
+  selected,
   creationTime,
   updateTime,
   id
@@ -48,9 +48,9 @@ export default ({
         <h3 className="note-head" style={styles.noteHead}>
           <span
             className={`glyphicon ${
-              !isChecked ? "glyphicon-unchecked" : "glyphicon-checked"
+              !selected ? "glyphicon-unchecked" : "glyphicon-check"
             }`}
-            style={{ fontSize: "16px" }}
+            style={{ fontSize: "16px" }} onClick={() => {onSelect(id)}}
           />{" "}
           {title}
         </h3>
